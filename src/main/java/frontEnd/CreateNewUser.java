@@ -10,14 +10,19 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 
 public class CreateNewUser {
     VBox layoutNewUser = new VBox();
     Stage primaryStage = new Stage();
-    public void newUserStage(Stage stage ){
+    public void newUserStage(Stage stage ) throws IOException{
         primaryStage = stage;
         stage.setTitle("Create new user");
+        String CSSfilePath = "C:/Users/bendo/IdeaProjects/JSONPractice/src/main/java/Style/StylSheet.css";
+        File cssFile = new File(CSSfilePath);
+
+        layoutNewUser.getStylesheets().add(cssFile.toURI().toString());
         Scene sceneManu = new Scene(layoutNewUser,  800, 600);
         layoutNewUser.getChildren().add(textAndLabelsLayout());
         layoutNewUser.getChildren().add(enterbutton());
@@ -35,8 +40,10 @@ public class CreateNewUser {
 
         for(int x = 0; x < labels.length; x++){
 
-
+            labels[x].getStyleClass().add("newuser-Labels");
+            textFields[x].getStyleClass().add(" newUser-TextBox");
                 gridPane.add(labels[x] , 0,  x  );
+
                 gridPane.add(textFields[x] , 1 ,  x );
         }
         
@@ -92,6 +99,7 @@ public class CreateNewUser {
     private Button enterbutton(){
         Button enter = new Button("Enter");
         enterButtonAction(enter);
+        enter.getStyleClass().add("newUser-enter-Button");
         return enter;
     }
     private void enterButtonAction(Button button){

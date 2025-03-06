@@ -221,8 +221,12 @@ public class MainScreen {
     private void newuserAction(Button button){
         CreateNewUser newUser = new CreateNewUser();
         button.setOnAction(e -> {
-            newUser.newUserStage(primaryStage);
-         });
+            try {
+                newUser.newUserStage(primaryStage);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
     }
 
 

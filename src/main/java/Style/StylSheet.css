@@ -38,3 +38,18 @@
     -fx-font-size: 20px;
      -fx-translate-x: 300px;
 }
+.newUser-enter-Button{
+    -fx-font-family: Arial;
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;
+    -fx-translate-x: 530px;
+    -fx-background-radius: 6;
+}
+.newUser-TextBox{
+    -fx-padding: 10 0 10 160;
+}
+.newuser-Labels{
+    -fx-font-size: 20px;
+     -fx-font-family: Arial;
+      -fx-padding: 10 0 10 150;
+}
