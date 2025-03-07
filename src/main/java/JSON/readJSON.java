@@ -1,5 +1,6 @@
 package JSON;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
@@ -29,6 +30,28 @@ public class readJSON {
          ArrayList<UserName> usersArray  = ArrayReader.readValue(JSONUsers , ArrayReader.getTypeFactory().constructCollectionType(ArrayList.class, UserName.class));
 
         return usersArray;
+    }
+
+    public void jsonFindUser(String userName) throws IOException{
+        ObjectMapper objectMapper = new ObjectMapper();
+        File JSONUser = new File ("C:/Users/bendo/IdeaProjects/JSONPractice/src/main/java/JSON/JSONFiles/Users.json");
+
+        JsonNode root = objectMapper.readTree(JSONUser);
+        ArrayList<UserName> usersArray  = objectMapper.readValue(JSONUser , objectMapper.getTypeFactory().constructCollectionType(ArrayList.class, UserName.class));
+
+        if(root.isArray()){
+            for(int i = 0; i < usersArray.size(); i++){
+
+                UserName user = usersArray.get(i);
+                if(userName.equals(user.getuserName())){
+                    usersArray.remove(i);
+                    break;
+                }
+            }
+        }
+
+        objectMapper.writeValue(JSONUser , usersArray);
+
     }
 
 

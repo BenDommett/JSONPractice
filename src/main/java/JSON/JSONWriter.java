@@ -8,7 +8,7 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import java.io.File;
-import java.io.IOException;
+
 
 
 public class JSONWriter{
@@ -75,7 +75,7 @@ public class JSONWriter{
         // Write back the updated array to the file
         objectMapper.writerWithDefaultPrettyPrinter().writeValue(JSONUser, usersArray);
 
-        System.out.println("User added successfully!");
+
 
 
 

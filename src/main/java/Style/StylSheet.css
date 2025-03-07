@@ -36,7 +36,7 @@
     -fx-font-family: Arial;
     -fx-font-weight: bold;
     -fx-font-size: 20px;
-     -fx-translate-x: 300px;
+    -fx-translate-x: 400px;
 }
 .newUser-enter-Button{
     -fx-font-family: Arial;
@@ -52,4 +52,41 @@
     -fx-font-size: 20px;
      -fx-font-family: Arial;
       -fx-padding: 10 0 10 150;
+}
+.delet-user-button{
+    -fx-font-family: Arial;
+    -fx-font-weight: bold;
+     -fx-font-size: 20px;
+     -fx-translate-x: 200px;
+     -fx-translate-y: -37px;
+}
+.delete-user-grid{
+    -fx-font-size: 20px;
+    -fx-font-family: Arial;
+    -fx-padding: 100 0 10 -50;
+}
+.delete-Users-labels{
+    -fx-padding: 15 0 0 300;
+}
+.delete-User-Button{
+
+    -fx-translate-x: 520px;
+    -fx-translate-y: 25px;
+    -fx-font-family: Arial;
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;
+}
+.delete-user-backButton{
+     -fx-translate-x: 200px;
+     -fx-translate-y: 440px;
+     -fx-font-family: Arial;
+     -fx-font-weight: bold;
+     -fx-font-size: 20px;
+}
+.back-create-newUser{
+    -fx-translate-x: 50px;
+    -fx-translate-y: -35px;
+    -fx-font-family: Arial;
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;
 }

@@ -26,6 +26,7 @@ public class CreateNewUser {
         Scene sceneManu = new Scene(layoutNewUser,  800, 600);
         layoutNewUser.getChildren().add(textAndLabelsLayout());
         layoutNewUser.getChildren().add(enterbutton());
+        layoutNewUser.getChildren().add(backButton());
         stage.setScene(sceneManu);
         stage.show();
     }
@@ -122,6 +123,25 @@ public class CreateNewUser {
             }
 
 
+        });
+    }
+
+    private Button backButton(){
+        Button back = new Button("Back");
+        back.getStyleClass().add("back-create-newUser");
+        backAction(back);
+        return back;
+    }
+
+    private void backAction(Button button ){
+        button.setOnAction(e -> {
+            MainScreen screen = new MainScreen();
+
+            try {
+                screen.start(primaryStage);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
         });
     }
 

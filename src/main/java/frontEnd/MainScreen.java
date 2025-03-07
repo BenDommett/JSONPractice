@@ -23,7 +23,7 @@ public class MainScreen {
     private int counter = 0;
     private int arraylength;
     private  ArrayList<UserName> users = new ArrayList<>();
-    public Label[] UserInfromation() throws IOException {
+    private Label[] UserInfromation() throws IOException {
         readJSON read = new readJSON();
         UserName user;
         Label[] labels = new Label[6];
@@ -82,6 +82,7 @@ public class MainScreen {
         layoutMenu.getChildren().add(LastUser());
         layoutMenu.getChildren().add(gridlayout( watchesUpdate() , enter() ));
         layoutMenu.getChildren().add(creatingNewUsere());
+        layoutMenu.getChildren().add(deletUserButton());
 
         stage.setScene(sceneManu);
 
@@ -101,6 +102,7 @@ public class MainScreen {
                     layoutMenu.getChildren().add(LastUser());
                     layoutMenu.getChildren().add(gridlayout( watchesUpdate() , enter() ));
                     layoutMenu.getChildren().add(creatingNewUsere());
+                    layoutMenu.getChildren().add(deletUserButton());
                 }else{
                     Label lastUser = new Label("this is the last user ");
                     lastUser.getStyleClass().add("label-endOfUsers");
@@ -128,6 +130,7 @@ public class MainScreen {
                     layoutMenu.getChildren().add(LastUser());
                     layoutMenu.getChildren().add(gridlayout( watchesUpdate() ,enter() ));
                     layoutMenu.getChildren().add(creatingNewUsere());
+                    layoutMenu.getChildren().add(deletUserButton());
                 }else{
                     Label lastUser = new Label("this is the last user ");
                     lastUser.getStyleClass().add("label-endOfUsers");
@@ -180,9 +183,12 @@ public class MainScreen {
                     json.jsonWriter(users , counter , finalupdate );
                     layoutMenu.getChildren().clear();
                     userInfromatiom();
+                    updata.setText("");
                     layoutMenu.getChildren().add(nextUser());
                     layoutMenu.getChildren().add(LastUser());
                     layoutMenu.getChildren().add(gridlayout( watchesUpdate() ,enter() ));
+                    layoutMenu.getChildren().add(creatingNewUsere());
+                    layoutMenu.getChildren().add(deletUserButton());
 
 
                 }
@@ -228,6 +234,26 @@ public class MainScreen {
             }
         });
     }
+    private Button deletUserButton(){
+        Button deletUser = new Button("Delet user");
+        deletUser.getStyleClass().add("delet-user-button");
+        deletUserAction(deletUser);
+        return deletUser;
 
+    }
+    private void deletUserAction(Button button){
+        DeletUser deleteUser = new DeletUser();
+        button.setOnAction(e -> {
 
+            try {
+                deleteUser.deletUserStage(primaryStage);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+    }
+
+    public ArrayList<UserName> getUsers(){
+        return users;
+    }
 }
